@@ -1,0 +1,11 @@
+docs_list_title: API Documentation
+
+docs:
+- title: Intro
+  url: /
+
+- title: API
+  url: /api/
+  subpages:
+  - page: Setting up
+    url: /api/setup.html

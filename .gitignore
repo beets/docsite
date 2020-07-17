@@ -3,5 +3,5 @@
 .AppleDouble
 .LSOverride
 
-.sass-cache
-_site
+.sass-cache/
+_site/

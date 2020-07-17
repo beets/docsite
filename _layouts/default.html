@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>{{ page.title }} | Data Commons Docs</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans&family=Roboto&display=swap" rel="stylesheet">
+  <link href="/assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div id="main">
+    <header id="main-header">
+      <nav class="navbar navbar-dark navbar-expand-lg col" id="main-nav">
+        <div class="container-fluid">
+          <div class="navbar-brand">
+            <a href="https://datacommons.org">Data Commons</a>
+            <span>Docs</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="{{ main_id }}" class="main-content container-fluid">
+      <div class="row">
+        <div class="col-2">
+          {% include sidebar.html %}
+        </div>
+        <div class="col-10">
+          <h1>{{ page.title }}</h1>
+          {{ content }}
+        </div>
+      </div>
+    </main>
+
+    <footer id="main-footer">
+      <div class="container">
+        <div class="row">
+          <div id="sub-footer" class="col-12">
+            <span><a href="https://datacommons.org">Data Commons</a> is a Google supported project</span>
+            <div class="float-md-right mt-2 mt-md-0">
+              <a href="https://policies.google.com/terms">Terms and Conditions</a> ·
+              <a href="https://policies.google.com/privacy?hl=en-US">Privacy Policy</a> ·
+              <a href="https://datacommons.org/disclaimers">Disclaimers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  {% comment %}
+  {# Compile this down (or manually implement). Used only for nav bar so far #}
+  {% endcomment %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script async src="https://cse.google.com/cse.js?cx=010079880385165835740%3Aosnv3q-sw08"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117119267-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-117119267-1');
+  </script>
+</body>
+</html>
