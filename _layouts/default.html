@@ -16,7 +16,7 @@
         <div class="container-fluid">
           <div class="navbar-brand">
             <a href="https://datacommons.org">Data Commons</a>
-            <span>Docs</span>
+            <span><a href="/">Docs</a></span>
             </a>
           </div>
         </div>
@@ -29,8 +29,22 @@
           {% include sidebar.html %}
         </div>
         <div class="col-10">
-          <div id="main-doc-content">
-            <h1>{{ page.title }}</h1>
+          <div id="main-doc-content" class="container">
+            {% unless page.url == "/" %}
+              {% if page.parent %}
+                <nav aria-label="Breadcrumb" id="main-breadcrumb">
+                  <ol class="breadcrumb">
+                    {% if page.grand_parent %}
+                      <li class="breadcrumb-item"><a href="{{ first_level_url }}">{{ page.grand_parent }}</a></li>
+                      <li class="breadcrumb-item"><a href="{{ second_level_url }}">{{ page.parent }}</a></li>
+                    {% else %}
+                      <li class="breadcrumb-item"><a href="{{ first_level_url }}">{{ page.parent }}</a></li>
+                    {% endif %}
+                    <li class="breadcrumb-item active"><span>{{ page.title }}</span></li>
+                  </ol>
+                </nav>
+              {% endif %}
+            {% endunless %}
             {{ content }}
           </div>
         </div>

@@ -33,7 +33,7 @@ $link-color: #660000;
 $link-hover-color: $link-color;
 $primary: $link-color;
 
-$font-size-base: 1.1rem;
+$font-size-base: 1.0rem;
 
 $grid-breakpoints: (
 xs: 0,
@@ -60,7 +60,8 @@ color: #fff;
 font-weight: 500;
 }
 
-#main-nav .navbar-brand span {
+#main-nav .navbar-brand span,
+#main-nav .navbar-brand span a {
 font-weight: 200;
 letter-spacing: 2px;
 margin-left: .2rem;

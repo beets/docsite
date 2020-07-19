@@ -17,12 +17,21 @@
  * limitations under the License.
  */
 
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 1.75;
+$h3-font-size: $font-size-base * 1.5;
+$h4-font-size: $font-size-base * 1.25;
+$h5-font-size: $font-size-base * 1.1;
+
 @import "base";
 @import "sidebar-nav";
-
+@import "markup";
+@import "friendly_code";
 
 #main-doc-content {
   margin: 2rem;
+  min-height: 80vh;
 }
 
 #main-side-nav {
@@ -39,4 +48,15 @@
 
 #main-footer #sub-footer {
   border-top: none !important;
+}
+
+#main-breadcrumb .breadcrumb {
+  background: none;
+  padding: 0;
+  font-size: 1rem;
+}
+
+#main-breadcrumb .active,
+#main-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--dc-gray);
 }
