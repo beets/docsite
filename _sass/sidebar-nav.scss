@@ -14,35 +14,51 @@
  * limitations under the License.
  */
 
-.nav-list {
+#sidebar a {
+  color: var(--dc-gray);
+  font-size: .9rem;
+}
+
+#sidebar a.active {
+  font-weight: 600;
+}
+
+#sidebar .parent > summary > a {
+  color: var(--dc-red-strong);
+}
+
+#sidebar summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+#sidebar summary::-webkit-details-marker {
+  display: none;
+}
+
+#sidebar details[open] > summary > svg {
+  transform: rotate(180deg) scaleX(-1);
+}
+
+#sidebar svg {
+  vertical-align: middle;
+}
+
+#sidebar ul {
   list-style: none;
   padding-left: 0;
 }
 
- /*
-.nav-list-item .nav-list > .nav-list-item {
-  display: none;
+#sidebar details {
+  padding: .2rem 0;
 }
 
-.nav-list-item.active .nav-list > .nav-list > .nav-list-item.active {
-  display: block;
+#sidebar .parent > ul {
+  padding-left: 1rem;
 }
 
-.nav-list-item .nav-list > .nav-list > .nav-list-item.active {
-  display: block;
-}
-
-.nav-list-item .nav-list > .nav-list-item > .nav-list {
-  display: none;
-}
-*/
-
-.nav-list.grandchild {
+#sidebar .child > ul {
   border-left: 1px solid lightgray;
   padding-left: 1rem;
   margin: .5rem 0;
-}
-
-.nav-list-item {
-  font-size: 1rem;
 }

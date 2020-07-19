@@ -1,7 +1,5 @@
 ---
 ---
-@import "base";
-
 
 /**
  * Copyright 2020 Google LLC
@@ -19,3 +17,26 @@
  * limitations under the License.
  */
 
+@import "base";
+@import "sidebar-nav";
+
+
+#main-doc-content {
+  margin: 2rem;
+}
+
+#main-side-nav {
+  border-right: 1px solid #e0e0e0;
+  background: #f5f5f5;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#main-footer {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#main-footer #sub-footer {
+  border-top: none !important;
+}

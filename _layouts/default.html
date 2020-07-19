@@ -23,14 +23,16 @@
       </nav>
     </header>
 
-    <main id="{{ main_id }}" class="main-content container-fluid">
+    <main id="{{ main_id }}" class="container-fluid">
       <div class="row">
-        <div class="col-2">
+        <div id="main-side-nav" class="col-2">
           {% include sidebar.html %}
         </div>
         <div class="col-10">
-          <h1>{{ page.title }}</h1>
-          {{ content }}
+          <div id="main-doc-content">
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+          </div>
         </div>
       </div>
     </main>
