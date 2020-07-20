@@ -1,0 +1,24 @@
+{
+  "name": "docsite",
+  "version": "1.0.0",
+  "description": "This repo hosts Data Commons API documentation available at http://docs.datacommons.org/.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datacommonsorg/docsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datacommonsorg/docsite/issues"
+  },
+  "homepage": "https://github.com/datacommonsorg/docsite#readme",
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.5.0"
+  }
+}
