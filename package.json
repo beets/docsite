@@ -12,13 +12,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/datacommonsorg/docsite/issues"
   },
   "homepage": "https://github.com/datacommonsorg/docsite#readme",
   "dependencies": {
-    "boostrap": "^2.0.0",
-    "bootstrap": "^4.5.0"
-  }
+    "bootstrap": "^4.0.0"
+  },
+  "devDependencies": {}
 }
