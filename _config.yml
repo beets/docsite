@@ -25,9 +25,12 @@ plugins:
 
 sass:
   style: compressed
+<<<<<<< HEAD
   # load_paths:
   #   - _sass
   #   - node_modules
+=======
+>>>>>>> c211929
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

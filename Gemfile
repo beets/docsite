@@ -8,7 +8,6 @@ source "https://rubygems.org"
 #
 # To upgrade, run `bundle update github-pages`.
 gem "github-pages", group: :jekyll_plugins
-gem "bootstrap", "~> 4.0.0"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"

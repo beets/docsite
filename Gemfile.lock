@@ -6,12 +6,15 @@ GEM
       multi_json (~> 1.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+<<<<<<< HEAD
     autoprefixer-rails (9.8.5)
       execjs
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
+=======
+>>>>>>> c211929
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -214,7 +217,10 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+<<<<<<< HEAD
     popper_js (1.16.0)
+=======
+>>>>>>> c211929
     public_suffix (3.1.1)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
@@ -247,9 +253,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap (~> 4.0.0)
   github-pages
   jekyll-feed (~> 0.6)
+=======
+  github-pages
+  jekyll-feed (~> 0.6)
+  minima (~> 2.0)
+>>>>>>> c211929
   tzinfo
   tzinfo-data
   wdm (~> 0.1.0)
