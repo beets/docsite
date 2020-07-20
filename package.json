@@ -3,22 +3,22 @@
   "version": "1.0.0",
   "description": "This repo hosts Data Commons API documentation available at http://docs.datacommons.org/.",
   "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "update": "^0.7.4"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/datacommonsorg/docsite.git"
+    "url": "git+https://github.com/beets/docsite.git"
   },
-  "keywords": [],
   "author": "",
-  "license": "Apache-2.0",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/datacommonsorg/docsite/issues"
+    "url": "https://github.com/beets/docsite/issues"
   },
-  "homepage": "https://github.com/datacommonsorg/docsite#readme",
-  "dependencies": {
-    "bootstrap": "^4.0.0"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/beets/docsite#readme"
 }
