@@ -10,27 +10,31 @@ permalink: /api/rest/v2/node
 
 # /v2/node
 
-Fetches node information for edges and neighboring nodes. This is useful for
+Fetches node information for arcs and neighboring nodes. This is useful for
 finding local connections between nodes of the Data Commons knowledge graph.
 More specifically, this API can perform the following tasks:
 
 - Get all property labels associated with individual or multiple nodes.
 - Get the values of a property for individual or multiple nodes. These can also
-  be chained for multiple degrees in the graph.
-- Get all connected nodes that are linked with invidiual or mutiple nodes.
+  be chained across multiple degrees in the graph.
+- Get all connected nodes that are linked with individual or mutiple nodes.
 
-Data Commons represents node relations as directed edges between nodes, or
-property. The name of the property is label, while the target node is a value of
-the property. This endpoint returns the property labels and values that are
-connected to the queried node.
+Data Commons represents node relations as properties, or arcs (directed edges) between
+nodes. The name of the property is the label of the edge, while the target node
+is a value of the property. Thus, this endpoint returns the property labels and
+values that are connected to the queried node.
 
+<!-- TODO: link to section on relation expressions -->
 The REST (v2) API introduces relation expressions in the API syntax to represent
 neighboring nodes, and to support chaining and filtering. For more information
 see Data Commons REST (v2) API Overview.
 
-_Note: For filtering, this API currently only supports the `containedInPlace`
-property to fetch multiple `Place` nodes. Support for more properties and node
-types will be added in the future._
+<div markdown="span" class="alert alert-info" role="alert">
+   <span class="material-icons md-16">info </span><b>Note:</b><br />
+  For filtering, this API currently only supports the `containedInPlace`
+  property to fetch multiple `Place` nodes. Support for more properties and node
+  types will be added in the future.
+</div>
 
 ## Request
 
@@ -57,8 +61,8 @@ X-API-Key: {your_api_key}
 JSON Data:
 {
   "nodes": [
-      "{value_1}",
-      "{value_2}",
+      "{DCID_1}",
+      "{DCID_2}",
       ...
     ],
   "property": "{property_expression}"
@@ -75,12 +79,13 @@ JSON Data:
 | ----------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | key <br /> <required-tag>Required</required-tag>      | string | Your API key. See the [page on authentication](/api/rest/v1/getting_started#authentication) for a demo key, as well as instructions on how to get your own key. |
 | nodes <br /> <required-tag>Required</required-tag>    | string | [DCIDs](/glossary.html#dcid) of the nodes to query.                                                                                                             |
-| property <br /> <required-tag>Required</required-tag> | string | Property to query, represented with symbols including arrow notation. For more details, see Data Commons REST (v2) API Overview.                                |
+| property <br /> <required-tag>Required</required-tag> | string | Property to query, represented a relation expression.                               |
+| nextToken <br /> <optional-tag>Optional</optional-tag> | string | Pagination token to use for large responses.
 {: .doc-table }
 
-By using different “property” parameters, you can query node information in
+By using different `property` parameters, you can query node information in
 different ways such as getting the edges and neighboring node values. Notice
-that the “property parameter” should follow the syntax section (reference).
+that the `property parameter` should follow the required syntax *link to index*.
 You can also request this information for one or multiple nodes, as demonstrated
 in the following examples.
 
@@ -119,10 +124,12 @@ The response looks like:
 
 ## Examples
 
-### Example 1: All "in" Properties for a Given Node
+### Example 1: All "out" Properties for a Given Node
 
-Get the properties of the node with DCID `geoId/06` by querying all in
-properties with the `<-` symbol.
+<!-- Add reference to in vs out properties -->
+Get all properties of the node with DCID
+[`geoId/06`](https://datacommons.org/browser/geoId/06) by querying all "out"
+properties with the `->` symbol.
 
 Parameters:
 {: .example-box-title}
@@ -148,6 +155,17 @@ Response:
   "data": {
     "geoId/06": {
       "properties": [
+        "administrativeCapital",
+        "alternateName",
+        "archinformLocationId",
+        "area",
+        "babelnetId",
+        "bbcThingsId",
+        "brockhausEncylcopediaOnlineId",
+        "containedInPlace",
+        ...
+        "wikidataId",
+        "worldcatIdentitiesId"
         "affectedPlace",
         "containedInPlace",
         "location",
@@ -162,8 +180,9 @@ Response:
 
 ### Example 2: Get One Property for a Given Node
 
-Get a `name` property for a given node with DCID `dc/03lw9rhpendw5` by querying the
-`->name` symbol.
+Get a `name` property for a given node with DCID
+[`dc/03lw9rhpendw5`](https://datacommons.org/browser/dc/03lw9rhpendw5) by
+querying the `->name` symbol.
 
 Parameters:
 {: .example-box-title}
@@ -288,9 +307,9 @@ Response:
 ```
 {: .example-box-content .scroll}
 
-### Example 4: "In" Triples for a Node
+### Example 4: "In" Triples for a Node with pagination
 
-Get the `in` triples for node `PowerPlant` with property `<-*`.
+Get the `in` triples for node [`PowerPlant`](https://datacommons.org/browser/PowerPlant) with property `<-*`.
 
 Parameters:
 {: .example-box-title}
@@ -319,11 +338,20 @@ Response:
         "domainIncludes": {
           "nodes": [
             {
-              "types": [
-                "Property"
-              ],
+              "types": [ "Property" ],
               "dcid": "ashImpoundmentStatus",
               "provenanceId": "dc/base/BaseSchema"
+            },
+            ...
+          ],
+        },
+        "typeOf": {
+          "nodes": [
+            {
+              "name": "Suzlon Project VIII LLC",
+              "types": [ "PowerPlant" ],
+              "dcid": "dc/000qxlm93vn93",
+              "provenanceId": "dc/base/EIA_860"
             },
             ...
           ],
@@ -335,4 +363,12 @@ Response:
   "nextToken": "{token_string}"
 }
 ```
+
+The following page of results can then be retrieved using the following request. Note that the `nextToken` from the response should be passed in, along with the original `node` and `property` parameters.
+
+```bash
+curl --request GET --url \
+  'https://api.datacommons.org/v2/node?key=AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI&nodes=PowerPlant&property=<-*&nextToken={token_string}'
+```
+
 {: .example-box-content .scroll}
